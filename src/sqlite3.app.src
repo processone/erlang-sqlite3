@@ -5,5 +5,10 @@
   {modules, []},
   {registered, []},
   {applications, [kernel, stdlib]},
-  {env, []}
- ]}.
+  {env, []},
+
+  %% hex.pm packaging:
+  {files, ["src/", "include/", "c_src/sqlite3_drv.c", "c_src/sqlite3_drv.h", "rebar.config", "README.md", "LICENSE"]},
+  {licenses, ["EPL 1.1"]},
+  {maintainers, ["alexeyr", "ProcessOne"]},
+  {links, [{"Github", "https://github.com/processone/erlang-sqlite3"}]}]}.
