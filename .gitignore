@@ -6,6 +6,7 @@
 *.orig
 # build outputs
 .rebar/
+_build/
 rebar.cross_compile.config
 config.tmp
 *.pdb

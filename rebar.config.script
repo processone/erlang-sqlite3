@@ -1,0 +1,37 @@
+ModCfg0 = fun(F, Cfg, [Key|Tail], Op, Default) ->
+                 {OldVal,PartCfg} = case lists:keytake(Key, 1, Cfg) of
+                                        {value, {_, V1}, V2} -> {V1, V2};
+                                        false -> {if Tail == [] -> Default; true -> [] end, Cfg}
+                                    end,
+                 case Tail of
+                     [] ->
+                         [{Key, Op(OldVal)} | PartCfg];
+                     _ ->
+                         [{Key, F(F, OldVal, Tail, Op, Default)} | PartCfg]
+                 end
+         end,
+ModCfg = fun(Cfg, Keys, Op, Default) -> ModCfg0(ModCfg0, Cfg, Keys, Op, Default) end.
+
+%% Rebar3 support for hex.pm support:
+%% - Add rebar3_hex plugin
+IsRebar3 = case application:get_key(rebar, vsn) of
+               {ok, VSN} ->
+                   [VSN1 | _] = string:tokens(VSN, "-"),
+                   [Maj, Min, Patch] = string:tokens(VSN1, "."),
+                   (list_to_integer(Maj) >= 3);
+               undefined ->
+                   lists:keymember(mix, 1, application:loaded_applications())
+           end,
+Cfg = case IsRebar3 of
+           true ->
+               ModCfg(CONFIG, [plugins], fun(V) -> V ++ [rebar3_hex] end, []);
+           false ->
+               CONFIG
+       end,
+
+Cfg.
+
+%% Local Variables:
+%% mode: erlang
+%% End:
+%% vim: set filetype=erlang tabstop=8:
