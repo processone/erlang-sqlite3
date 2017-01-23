@@ -94,7 +94,7 @@ static void driver_free_binary_fun(void *ptr) {
 }
 
 // sdbm from http://www.cse.yorku.ca/~oz/hash.html
-unsigned int hash(const char *str) {
+unsigned int do_hash(const char *str) {
   unsigned int hash = 0;
   unsigned int c = 0;
 
@@ -113,7 +113,7 @@ static inline unsigned int sql_async_key(char *db_name, ErlDrvPort port) {
   const char *memory_db_name = ":memory:";
 
   if (strcmp(db_name, memory_db_name)) {
-    return hash(db_name);
+    return do_hash(db_name);
   } else {
     #if ERL_DRV_EXTENDED_MAJOR_VERSION > 2 || \
       (ERL_DRV_EXTENDED_MAJOR_VERSION == 2 && ERL_DRV_EXTENDED_MINOR_VERSION >= 2)
@@ -456,7 +456,7 @@ static inline void exec_async_command(
 
     // see https://groups.google.com/d/msg/erlang-programming/XiFR6xxhGos/B6ARBIlvpMUJ
     if (status < 0) {
-      LOG_ERROR("driver_async call failed", 0);
+      LOG_ERROR("driver_async call failed: %ld", status);
       output_error(drv, SQLITE_ERROR, "driver_async call failed");
     }
   } else {
