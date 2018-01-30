@@ -8,7 +8,7 @@
   {env, []},
 
   %% hex.pm packaging:
-  {files, ["src/", "include/", "c_src/sqlite3_drv.c", "c_src/sqlite3_drv.h", "sqlite3_amalgamation/shell.c", "sqlite3_amalgamation/sqlite3.c", "sqlite3_amalgamation/sqlite3.h", "sqlite3_amalgamation/sqlite3ext.h", "rebar.config", "README.md", "LICENSE"]},
+  {files, ["src/", "include/", "c_src/sqlite3_drv.c", "c_src/sqlite3_drv.h", "sqlite3_amalgamation/shell.c", "sqlite3_amalgamation/sqlite3.c", "sqlite3_amalgamation/sqlite3.h", "sqlite3_amalgamation/sqlite3ext.h", "rebar.config", "rebar.config.script", "README.md", "LICENSE"]},
   {licenses, ["EPL 1.1"]},
   {maintainers, ["alexeyr", "ProcessOne"]},
   {links, [{"Github", "https://github.com/processone/erlang-sqlite3"}]}]}.
