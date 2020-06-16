@@ -1,9 +1,23 @@
 language: erlang
-script: "make test"
+
+os: linux
+
+dist: xenial
+
+before_install:
+  - pip install --user cpp-coveralls coveralls-merge
+
+install:
+  - rebar get-deps
+
+script: rebar compile && rebar skip_deps=true eunit
+
+after_success:
+  - cpp-coveralls --exclude lib --exclude tests --gcov-options '\-lp' --dump c.json
+  - coveralls-merge c.json erlang.json
+
 otp_release:
-  - 18.0
-  - 17.4
-  - 17.3
   - R16B03-1
-  - R15B03
-  - R14B04
+  - 17.3
+  - 19.3
+  - 23.0
