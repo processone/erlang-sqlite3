@@ -400,7 +400,7 @@ static int changes(sqlite3_drv_t *drv, char *buf, int len) {
 }
 
 static int enable_load_extension(sqlite3_drv_t* drv, char *buf, int len) {
-#ifdef ERLANG_SQLITE3_LOAD_EXTENSION
+#ifndef ERLANG_SQLITE3_NO_LOAD_EXTENSION
   char enable = buf[0];
   int result = sqlite3_enable_load_extension(drv->db, (int) enable);
   if (result) {
