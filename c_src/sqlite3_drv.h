@@ -4,6 +4,7 @@
 #endif
 
 #define _CRT_SECURE_NO_WARNINGS // secure functions aren't cross-platform
+#define ERLANG_SQLITE3_LOAD_EXTENSION // comment out if SQLite is built with SQLITE_OMIT_LOAD_EXTENSION
 
 #include <erl_driver.h>
 #include <ei.h>
