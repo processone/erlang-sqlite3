@@ -826,7 +826,7 @@ do_init(Options) ->
 %%       {noreply, tuple()} | {noreply, tuple(), integer()} |
 %%       {stop, any(), any(), tuple()} | {stop, any(), tuple()}.
 
--spec handle_call(any(), pid(), #state{}) -> {'reply', any(), #state{}} | {'stop', 'normal', 'ok', #state{}}.
+-spec handle_call(any(), {pid(), term()}, #state{}) -> {'reply', any(), #state{}} | {'stop', 'normal', 'ok', #state{}}.
 handle_call(close, _From, State) ->
     Reply = ok,
     {stop, normal, Reply, State};
