@@ -1,4 +1,4 @@
-REBAR=./rebar
+REBAR ?= ./rebar
 REBAR_DEBUG=$(REBAR) -C rebar.debug.config
 REBAR_COMPILE=$(REBAR) get-deps compile
 REBAR_DEBUG_COMPILE=$(REBAR_DEBUG) get-deps compile
@@ -11,16 +11,21 @@ debug: config_debug
 	$(REBAR_DEBUG_COMPILE) 
 
 compile:
-	$(REBAR_COMPILE)
+	$(REBAR) get-deps
+	$(REBAR) compile
 	
 test:
-	$(REBAR_COMPILE) eunit
+	$(REBAR) get-deps
+	$(REBAR) compile
+	$(REBAR) eunit
 
 clean:
 	-rm -rf deps ebin priv/*.so doc/* .eunit/* c_src/*.o config.tmp
 
 docs:
-	$(REBAR_COMPILE) doc
+	$(REBAR) get-deps
+	$(REBAR) compile
+	$(REBAR) doc
 
 static: config_debug
 	$(REBAR_DEBUG_COMPILE)
