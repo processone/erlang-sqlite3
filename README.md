@@ -1,6 +1,6 @@
 # Erlang wrapper for SQLite3
 
-[![CI](https://github.com/badlop/erlang-sqlite3/actions/workflows/ci.yml/badge.svg)](https://github.com/badlop/erlang-sqlite3/actions/workflows/ci.yml)
+[![CI](https://github.com/processone/erlang-sqlite3/actions/workflows/ci.yml/badge.svg)](https://github.com/processone/erlang-sqlite3/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/processone/erlang-sqlite3/badge.svg?branch=master&service=github)](https://coveralls.io/github/processone/erlang-sqlite3?branch=master)
 [![Hex version](https://img.shields.io/hexpm/v/sqlite3.svg "Hex version")](https://hex.pm/packages/sqlite3)
 
