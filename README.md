@@ -1,10 +1,12 @@
 # Erlang wrapper for SQLite3
 
+[![CI](https://github.com/badlop/erlang-sqlite3/actions/workflows/ci.yml/badge.svg)](https://github.com/badlop/erlang-sqlite3/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/processone/erlang-sqlite3/badge.svg?branch=master&service=github)](https://coveralls.io/github/processone/erlang-sqlite3?branch=master)
+[![Hex version](https://img.shields.io/hexpm/v/sqlite3.svg "Hex version")](https://hex.pm/packages/sqlite3)
+
 This library allows you to work with SQLite3 databases from Erlang.
 
 It is compatible with Windows and Linux, and should probably work on other OSes as well.
-
-[![Build Status](https://travis-ci.org/alexeyr/erlang-sqlite3.svg?branch=master)](https://travis-ci.org/alexeyr/erlang-sqlite3)
 
 See also [esqlite](https://github.com/mmzeeman/esqlite) for an alternative library.
 
