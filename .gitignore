@@ -1,28 +1,18 @@
-# backups and VCS
-.svn
-*/.svn
-*~
+*.swo
 *.swp
-*.orig
-# build outputs
-.rebar/
-_build/
-rebar.cross_compile.config
-config.tmp
-*.pdb
-*.beam
-ebin/
-priv/
-.eunit/
-doc/
-sqlite3.plt
 TEST*.xml
-*.db
-*.exp
-*.lib
-*.obj
-*.dll
-*.o
-*.so
-# crash dump
-erl_crash.dump
+.eunit
+.rebar
+_build
+autom4te.cache
+c_src/*.d
+c_src/*.gcda
+c_src/*.gcno
+c_src/*.o
+config.log
+config.status
+deps
+ebin
+priv
+rebar.lock
+vars.config
