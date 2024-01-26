@@ -376,7 +376,15 @@ table_constraint_sql(TableConstraint) ->
         {unique, Columns} ->
             ["UNIQUE(",
              map_intersperse(fun indexed_column_sql/1, Columns, ", "), ")"];
-        %% TODO: foreign key
+        {foreign_key, {Columns, Parent, ParentColumns, Action}} ->
+            ["FOREIGN KEY(",
+             map_intersperse(fun indexed_column_sql/1, Columns, ", "),
+             ") REFERENCES ",
+             atom_to_list(Parent),
+             "(",
+             map_intersperse(fun indexed_column_sql/1, ParentColumns, ", "),
+             ")",
+             Action];
         {raw, S} when is_list(S) -> S;
         _ when is_list(TableConstraint) ->
             map_intersperse(fun table_constraint_sql/1, TableConstraint, ", ")
