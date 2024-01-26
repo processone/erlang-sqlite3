@@ -31,7 +31,7 @@
 -type column_constraint() :: non_null | primary_key | {primary_key, pk_constraints()}
                              | unique | {default, sql_value()}.
 -type column_constraints() :: column_constraint() | [column_constraint()].
--type table_constraint() :: {primary_key, [atom()]} | {foreign_key, {[atom()], atom(), [atom()]}} | {unique, [atom()]}.
+-type table_constraint() :: {primary_key, [atom()]} | {foreign_key, {[atom()], atom(), [atom()], string()}} | {unique, [atom()]}.
 -type table_constraints() :: table_constraint() | [table_constraint()].
 -type table_info() :: [{column_id(), sql_type()} | {column_id(), sql_type(), column_constraints()}].
 
