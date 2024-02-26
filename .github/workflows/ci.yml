@@ -14,7 +14,10 @@ jobs:
     container:
       image: erlang:${{ matrix.otp }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      if: matrix.otp < '20.3'
+    - uses: actions/checkout@v4
+      if: matrix.otp >= '20.3'
     - run: rebar3 compile
     - run: rebar3 xref
     - run: rebar3 dialyzer
