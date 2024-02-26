@@ -440,7 +440,7 @@ number_test() ->
     ?assertEqual(sql_number(" 1 "), {error, not_a_number}),
     ?assertEqual(sql_number("0"),   0),
     ?assertEqual(sql_number("0.0"), 0.0),
-    ?assertEqual(sql_number("-0.0"), 0.0),
+    ?assertEqual(sql_number("-0.0"), -0.0),
     ?assertEqual(sql_number("+0.0"), 0.0).
 
 create_table_sql_test() ->
