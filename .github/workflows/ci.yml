@@ -32,6 +32,7 @@ jobs:
     - uses: erlef/setup-beam@v1
       with:
         otp-version: 26
+        rebar3-version: 3
     - run: ./configure --enable-gcov
     - run: rebar3 compile
     - run: rebar3 eunit -v
